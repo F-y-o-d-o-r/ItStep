@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+
+  <button onclick="stime()" id="button">Время на сервере</button>
+<div id="time1"></div>
+
+  <script>
+    function stime() {
+      button.innerHTML = 'обработка запроса...';
+
+      var xhr = new XMLHttpRequest();
+
+      xhr.open('GET', 'time', true);
+
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState != 4) return;
+
+        if (xhr.status != 200) {
+          // обработать ошибку
+          alert('Ошибка ' + xhr.status + ': ' + xhr.statusText);
+          return;
+        }
+
+        // обработать результат
+        time1.innerHTML = xhr.responseText;
+ 	button.innerHTML = "Время на сервере";
+      }
+
+      xhr.send(null);
+
+    }
+  </script>
+
+</body>
+
+</html>.

@@ -1,0 +1,96 @@
+#pod_footer {
+    box-shadow: 1px 0px 5px rgba(0,0,0,.8);
+    background-image: url(../images/footer.jpg);
+    background-repeat: repeat;
+   width: 1200px;
+    height: 209px;
+}
+.bottom-menu {
+	padding: 0;
+	margin: 0;
+	float:left;
+}
+
+.bottom-menu li {
+	display: inline-block;
+	padding: 30px 17px;
+	margin: 0;
+}
+.bottom-menu li  a{
+	text-decoration: none;
+	color: #fff;
+	font: 20px 'Roboto';
+}
+
+.copyright {
+	float:right;
+	color: #fff;
+	font: 18px Times New Roman;
+	padding-top: 30px;
+	padding-right: 30px;
+}
+
+p.required {
+padding: 10px 17px;
+color: #fff;
+}
+
+
+.telefons{
+    color: aliceblue;
+padding: 30px 10px;
+float:left;
+}
+.telefons td{
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-bottom: 10px;
+	
+	
+	
+}
+.service_content{
+	font-size:14px;
+	line-height:25px;
+	font-weight:600;
+	width:650px;
+	float:right;
+	margin:20px;	
+}
+.service_content > p{
+	text-align: justify;
+}
+.content>h2{
+	margin:20px;
+}
+.service_content_info{
+	text-align:justify;
+	text-indent:25px;
+}
+
+.table_price{
+	width: 600px;
+	margin: auto; 
+	border-collapse: collapse;
+}
+.table_price td{
+	text-align: center;
+	border: 1px solid #fff;
+	font-weight:600;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:5px;
+	padding-right:5px;
+}
+.table_price .td-left{
+	
+}
+.table_price .no-border{
+	border: 0; 
+	font-size: 0.9em; 
+}
+.discaunt{
+	text-align:center;
+	font:18px 'Lobster', sans-serif;
+	margin:10px;
+}

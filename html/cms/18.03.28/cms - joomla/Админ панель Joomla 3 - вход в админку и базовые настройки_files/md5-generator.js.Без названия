@@ -1,0 +1,10 @@
+$().ready(function() {
+
+	$("#source").keyup(function(){
+		$("#md5_hex").val(hex_md5($(this).val()));
+		$("#md5_b64").val(b64_md5($(this).val()));
+	});
+	$("input[type='text']").focus(function(){this.select();});
+	
+	$("#source").focus();
+});

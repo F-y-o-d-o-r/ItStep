@@ -1,0 +1,124 @@
+#wrapper {
+	max-width: 1200px;
+	margin: auto;	
+	background: linear-gradient(to top,rgba(255,222,173,1), rgba(255,226,183,0.8), rgba(250,223,196,0.9));
+	padding:  10px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+	
+}
+
+header {
+	padding: 0;
+	margin:1px 0;
+	position: relative;
+}
+
+.header_hr {
+	background: linear-gradient(to right,rgba(255,228,196,0), rgba(58,35,19,1), rgba(255,228,196,0));
+	height: 1px;
+	border: none;
+}
+
+.logo{
+	padding: 0;
+	margin-left: 35px;
+	float: left;
+}
+.logo_name {
+	padding-left: 20px;
+	font: 15px 'Lobster';
+	color: #3a2313;
+}
+
+.header-info {
+	float: left;
+	margin-left: 90px;
+	border-collapse: collapse;
+}
+
+.header-info td.border {
+	border-right: 1px solid rgba(58,35, 19, .5);	
+}
+
+.header-info td {
+	padding-left: 40px;
+	padding-right: 20px;
+	font-weight:500;
+}
+td strong{
+	font: 15px 'Roboto';
+	color: #3a2313;
+}
+
+div.callback {
+	float: right;
+}
+div.callback  form{
+	padding-bottom: 20px;
+}
+.call_label {
+	float: right;
+	display: block;
+	cursor: pointer;
+}
+.call_label:after {
+	content: 'Перезвонить \f098';
+	font: normal 18px/1 FontAwesome;
+}
+
+
+
+
+
+ div.callback a{
+	text-decoration: none;
+	color: #3a2313;
+}
+
+ div.callback p {	
+	margin-top:30px;
+	display:inline-block;
+ }
+ 
+.modalDialog {
+	    position: absolute;
+	    font-family: Arial, Helvetica, sans-serif;
+	    top: -200px;
+	    right: 20px;
+	    background: rgba(0,0,0,0);
+	    z-index: 99999;
+	    -webkit-transition: opacity 400ms ease-in;
+	    -moz-transition: opacity 400ms ease-in;
+	    transition: opacity,top 400ms ease-in;
+	}
+#call_window_input:checked ~ .modalDialog {
+	top: 20px;
+	opacity: 1;
+}
+	.modalDialog > form {
+	    width: 200px;
+	    position: absolute;
+	    right: -30%;
+	    top : 0;
+	    padding: 5px 20px 13px 20px;
+	    border-radius: 10px;
+	    background: #fff;
+	    background: -moz-linear-gradient(#fff, #999);
+	    background: -webkit-linear-gradient(#fff, #999);
+	    background: -o-linear-gradient(#fff, #999);
+	}
+
+.modalDialog h2{
+color: #3a2313;
+}
+
+.modalDialog input[type="submit"]{
+	background: #008080;
+	color: #3a2313;
+	font-size:14px;
+	line-height:20px;
+	margin:10px 0;
+	border-radius: 8px;
+	cursor:pointer;
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16),0 2px 5px 0 rgba(0,0,0,0.12);
+	

@@ -1,0 +1,1028 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML+RDFa 1.1//EN">
+<!-- saved from url=(0056)http://www.seostop.ru/sozdanie-saita/joomla/adminka.html -->
+<html lang="ru" dir="ltr" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" class="js gr__seostop_ru"><head profile="http://www.w3.org/1999/xhtml/vocab"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+<link rel="shortcut icon" href="http://www.seostop.ru/sites/default/files/favicon-logo.ico" type="image/vnd.microsoft.icon">
+<meta name="description" content="Вход в админку и базовые настройки админ панели Joomla 3. Детальный пример настройки разделов системы, пользователи, меню, материалы, компоненты и расширений.">
+<meta name="generator" content="Drupal 7 (http://drupal.org)">
+<link rel="canonical" href="http://www.seostop.ru/sozdanie-saita/joomla/adminka.html">
+<link rel="shortlink" href="http://www.seostop.ru/node/273">
+  <title>Админ панель Joomla 3 - вход в админку и базовые настройки</title>
+  <style media="all">
+@import url("http://www.seostop.ru/modules/system/system.base.css?oz9iwd");
+@import url("http://www.seostop.ru/modules/system/system.menus.css?oz9iwd");
+@import url("http://www.seostop.ru/modules/system/system.messages.css?oz9iwd");
+@import url("http://www.seostop.ru/modules/system/system.theme.css?oz9iwd");
+</style>
+<style media="all">
+@import url("http://www.seostop.ru/sites/all/modules/jquery_update/replace/ui/themes/base/minified/jquery.ui.core.min.css?oz9iwd");
+@import url("http://www.seostop.ru/sites/all/modules/jquery_update/replace/ui/themes/base/minified/jquery.ui.theme.min.css?oz9iwd");
+</style>
+<style media="all">
+@import url("http://www.seostop.ru/modules/comment/comment.css?oz9iwd");
+@import url("http://www.seostop.ru/modules/field/theme/field.css?oz9iwd");
+@import url("http://www.seostop.ru/modules/node/node.css?oz9iwd");
+@import url("http://www.seostop.ru/modules/search/search.css?oz9iwd");
+@import url("http://www.seostop.ru/modules/user/user.css?oz9iwd");
+@import url("http://www.seostop.ru/sites/all/modules/extlink/extlink.css?oz9iwd");
+@import url("http://www.seostop.ru/sites/all/modules/views/css/views.css?oz9iwd");
+@import url("http://www.seostop.ru/sites/all/modules/ckeditor/css/ckeditor.css?oz9iwd");
+</style>
+<style media="all">
+@import url("http://www.seostop.ru/sites/all/modules/colorbox/styles/default/colorbox_style.css?oz9iwd");
+@import url("http://www.seostop.ru/sites/all/modules/ctools/css/ctools.css?oz9iwd");
+@import url("http://www.seostop.ru/sites/all/modules/panels/css/panels.css?oz9iwd");
+@import url("http://www.seostop.ru/sites/all/modules/yandex_metrics/css/yandex_metrics.css?oz9iwd");
+@import url("http://www.seostop.ru/sites/all/modules/social_buttons/social_buttons.css?oz9iwd");
+@import url("http://www.seostop.ru/sites/default/files/honeypot/honeypot.css?oz9iwd");
+</style>
+<style media="all">
+@import url("http://www.seostop.ru/sites/all/themes/seostop/css/bootstrap.min.css?oz9iwd");
+@import url("http://www.seostop.ru/sites/all/themes/seostop/css/style.css?oz9iwd");
+@import url("http://www.seostop.ru/sites/all/themes/seostop/css/develop.css?oz9iwd");
+</style>
+  <script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/cb=gapi.loaded_1" async=""></script><script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/cb=gapi(1).loaded_0" async=""></script><script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script><script type="text/javascript" src="http://an.yandex.ru/system/context.js" async=""></script><script type="text/javascript" async="" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/plusone.js.Без названия" gapi_processed="true"></script><script id="twitter-wjs" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/widgets.js.Без названия"></script><script id="facebook-jssdk" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/all.js.Без названия"></script><script type="text/javascript" src="http://an.yandex.ru/system/context.js" async=""></script><script type="text/javascript" src="http://an.yandex.ru/system/context.js" async=""></script><script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/jquery.min.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/jquery.once.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/drupal.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/jquery.ui.core.min.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/jquery.cookie.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/jquery.form.min.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/ajax.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/jquery_update.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/admin_devel.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/extlink.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/ru_douNnBH1CdTYjOuSBbnZhVa2bZgkClx3uaB7ixuzcu4.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/jquery.colorbox-min.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/colorbox.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/colorbox_style.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/jquery.validate.js.Без названия"></script>
+<script>
+jQuery.extend(Drupal.settings, { "pathToTheme": "sites/all/themes/seostop" });
+</script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/textarea.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/progress.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/antibot.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/ajax_comments.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/form_placeholder.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/password.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/jquery2.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/md5.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/md5-generator.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/punycode.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/jquery.cookie.js(1).Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/main.js.Без названия"></script>
+<script>
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"seostop","theme_token":"B7WBf6N5HLyrSj8fgfIZ5X35tY5KIGSj9hS_MYXuaiA","jquery_version":"1.8","js":{"sites\/all\/modules\/clientside_validation\/clientside_validation.ie8.js":1,"sites\/all\/modules\/clientside_validation\/clientside_validation_html5\/clientside_validation_html5.js":1,"sites\/all\/modules\/clientside_validation\/clientside_validation.js":1,"sites\/all\/modules\/jquery_update\/replace\/jquery\/1.8\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/jquery_update\/replace\/misc\/jquery.form.min.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/jquery_update\/js\/jquery_update.js":1,"sites\/all\/modules\/admin_menu\/admin_devel\/admin_devel.js":1,"sites\/all\/modules\/extlink\/extlink.js":1,"public:\/\/languages\/ru_douNnBH1CdTYjOuSBbnZhVa2bZgkClx3uaB7ixuzcu4.js":1,"sites\/all\/libraries\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox.js":1,"sites\/all\/modules\/colorbox\/styles\/default\/colorbox_style.js":1,"sites\/all\/modules\/clientside_validation\/jquery-validate\/jquery.validate.js":1,"0":1,"misc\/textarea.js":1,"misc\/progress.js":1,"sites\/all\/modules\/antibot\/js\/antibot.js":1,"sites\/all\/modules\/ajax_comments\/ajax_comments.js":1,"sites\/all\/modules\/form_placeholder\/form_placeholder.js":1,"sites\/all\/themes\/seostop\/js\/password.js":1,"sites\/all\/themes\/seostop\/js\/jquery2.js":1,"sites\/all\/themes\/seostop\/js\/md5.js":1,"sites\/all\/themes\/seostop\/js\/md5-generator.js":1,"sites\/all\/themes\/seostop\/js\/punycode.js":1,"sites\/all\/themes\/seostop\/js\/jquery.cookie.js":1,"sites\/all\/themes\/seostop\/js\/main.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/extlink\/extlink.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/colorbox\/styles\/default\/colorbox_style.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/panels\/css\/panels.css":1,"sites\/all\/modules\/yandex_metrics\/css\/yandex_metrics.css":1,"sites\/all\/modules\/social_buttons\/social_buttons.css":1,"sites\/default\/files\/honeypot\/honeypot.css":1,"sites\/all\/themes\/seostop\/css\/bootstrap.min.css":1,"sites\/all\/themes\/seostop\/css\/style.css":1,"sites\/all\/themes\/seostop\/css\/develop.css":1}},"colorbox":{"opacity":"0.85","current":"{current} \u0438\u0437 {total}","previous":"\u00ab \u041f\u0440\u0435\u0434\u044b\u0434\u0443\u0449\u0438\u0439","next":"\u0421\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0439 \u00bb","close":"\u0417\u0430\u043a\u0440\u044b\u0442\u044c","maxWidth":"98%","maxHeight":"98%","fixed":true,"mobiledetect":true,"mobiledevicewidth":"480px"},"extlink":{"extTarget":0,"extClass":0,"extLabel":"(\u0432\u043d\u0435\u0448\u043d\u044f\u044f \u0441\u0441\u044b\u043b\u043a\u0430)","extImgClass":0,"extSubdomains":1,"extExclude":"","extInclude":"","extCssExclude":"","extCssExplicit":"","extAlert":0,"extAlertText":"This link will take you to an external web site.","mailtoClass":0,"mailtoLabel":"(\u0441\u0441\u044b\u043b\u043a\u0430 \u0434\u043b\u044f \u043e\u0442\u043f\u0440\u0430\u0432\u043a\u0438 email)"},"form_placeholder":{"fallback_support":false,"include":".write-comment *,#block-search-form *","exclude":"","required_indicator":"leave"},"urlIsAjaxTrusted":{"\/sozdanie-saita\/joomla\/adminka.html":true,"\/system\/ajax":true,"\/comment\/reply\/273":true},"ajax":{"edit-ajax-comments-reply-form-273-0-0":{"callback":"ajax_comments_submit_js","wrapper":"ajax-comments-reply-form-273-0-0","method":"replaceWith","effect":"fade","event":"mousedown","keypress":true,"prevent":"click","url":"\/system\/ajax","submit":{"_triggering_element_name":"op","_triggering_element_value":"\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c"}}},"antibot":{"actions":{"comment-form":"\/comment\/reply\/273"}},"clientsideValidation":{"forms":{"comment-form":{"errorPlacement":1,"general":{"errorClass":"error","wrapper":"li","validateTabs":"","scrollTo":1,"scrollSpeed":1000,"disableHtml5Validation":1,"validateOnBlur":1,"validateOnBlurAlways":0,"validateOnKeyUp":1,"validateBeforeAjax":0,"validateOnSubmit":1,"showMessages":0,"errorElement":"label"},"rules":{"name":{"maxlength":60,"messages":{"maxlength":"\u0418\u043c\u044f field has to have maximum 60 values."}},"mail":{"maxlength":64,"messages":{"maxlength":"\u041f\u043e\u0447\u0442\u0430 field has to have maximum 64 values."}},"homepage":{"maxlength":255,"messages":{"maxlength":"\u0421\u0430\u0439\u0442 field has to have maximum 255 values."}},"date":{"maxlength":25,"messages":{"maxlength":"\u0414\u0430\u0442\u0430 \u0438 \u0432\u0440\u0435\u043c\u044f field has to have maximum 25 values."}},"subject":{"maxlength":64,"messages":{"maxlength":"\u0417\u0430\u0433\u043e\u043b\u043e\u0432\u043e\u043a field has to have maximum 64 values."}},"comment_body[und][0][value]":{"required":true,"messages":{"required":"\u041f\u043e\u043b\u0435 \u0022\u041a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439\u0022 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e \u0434\u043b\u044f \u0437\u0430\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f."}},"seostopurl":{"maxlength":128,"messages":{"maxlength":"Leave this field blank field has to have maximum 128 values."}}}}},"general":{"usexregxp":0,"months":{"\u042f\u043d\u0432\u0430\u0440\u044c":1,"\u042f\u043d\u0432":1,"\u0424\u0435\u0432\u0440\u0430\u043b\u044c":2,"\u0424\u0435\u0432":2,"\u041c\u0430\u0440\u0442":3,"\u041c\u0430\u0440":3,"\u0410\u043f\u0440\u0435\u043b\u044c":4,"\u0410\u043f\u0440":4,"\u041c\u0430\u0439":5,"\u0418\u044e\u043d\u044c":6,"\u0418\u044e\u043d":6,"\u0418\u044e\u043b\u044c":7,"\u0418\u044e\u043b":7,"\u0410\u0432\u0433\u0443\u0441\u0442":8,"\u0410\u0432\u0433":8,"\u0421\u0435\u043d\u0442\u044f\u0431\u0440\u044c":9,"\u0421\u0435\u043d":9,"\u041e\u043a\u0442\u044f\u0431\u0440\u044c":10,"\u041e\u043a\u0442":10,"\u041d\u043e\u044f\u0431\u0440\u044c":11,"\u041d\u043e\u044f":11,"\u0414\u0435\u043a\u0430\u0431\u0440\u044c":12,"\u0414\u0435\u043a":12}},"groups":{"comment-form":{}}}});
+</script>
+  <script type="text/javascript" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/openapi.js.Без названия"></script>
+  <script type="text/javascript">
+	VK.init({apiId: 5447148, onlyWidgets: true});
+  </script>
+  <script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1785674381620944",
+    enable_page_level_ads: true
+  });
+</script>
+<script type="text/javascript" charset="utf-8" async="" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/button.b74390cfaab5c0218a0e372047007e13.js.Без названия"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_customer_chat_bounce_in{animation-duration:250ms;animation-name:fb_bounce_in}.fb_customer_chat_bounce_out{animation-duration:250ms;animation-name:fb_fade_out}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{background-color:#fff;height:100%;overflow:hidden;position:fixed;visibility:hidden;width:100%}@keyframes fb_fade_out{from{opacity:1}to{opacity:0}}@keyframes fb_bounce_in{0%{opacity:0;transform:scale(.8, .8);transform-origin:100% 100%}10%{opacity:.1}20%{opacity:.2}30%{opacity:.3}40%{opacity:.4}50%{opacity:.5}60%{opacity:.6}70%{opacity:.7}80%{opacity:.8;transform:scale(1.03, 1.03)}90{opacity:.9}100%{opacity:1;transform:scale(1, 1)}}</style><style type="text/css">
+:root .adsbygoogle,
+:root #header + #content > #left > #rlblock_left
+{ display: none !important; }
+:root *[hsi1h4u][hidden] { display: none !important; }</style><style type="text/css">.fancybox-margin{margin-right:0px;}</style></head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-273 node-type-page" data-gr-c-s-loaded="true" data-gclp-initialized="true" data-gistbox-initialized="true" style="" cz-shortcut-listen="true">
+  <div id="skip-link">
+<!--    <a href="#main-content" class="element-invisible element-focusable">Перейти к основному содержанию</a>-->
+  </div>
+    <div id="wrapper">
+
+		
+	<span class="dark-wrap"></span>
+	<span class="scroll-up" href="#wrapper">Наверх</span>
+
+	<div class="container">
+		<div class="header-logo hidden-lg">
+			<a href="http://www.seostop.ru/"><img src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/logo.png" alt="Как создать свой сайт"></a>
+			<p><span>Seostop.ru</span> - обучающие материалы по созданию и продвижению сайтов и заработку в интернете</p>
+
+			<a class="colapse-btn">
+				<span></span>
+				<span></span>
+				<span></span>
+			</a>
+		</div>
+	</div>
+
+	<header id="header" class="header">
+
+		<nav class="navbar navbar-default">
+		  <div class="container">
+		    
+	          <ul class="nav navbar-nav navbar-left">
+<li class="home-icon"><a href="http://www.seostop.ru/sozdanie-saita/joomla/adminka.html#"><span class="home"></span></a></li>
+<li class=""><a href="http://www.seostop.ru/">Главная</a></li>
+<li class=""><a href="http://www.seostop.ru/soderzhanie.html">Содержание</a></li>
+<li class=""><a href="http://www.seostop.ru/blog.html">Блог</a></li>
+<li class=""><a href="http://www.seostop.ru/moi-uslugi.html">Реклама</a></li>
+<li class=""><a href="http://www.seostop.ru/o-sayte.html">О сайте</a></li>
+
+</ul>
+	    	  <div class="navbar-form navbar-right" role="search">
+	    	    <div id="block-search-form" class="block block-search">
+
+			
+    <form action="http://www.seostop.ru/sozdanie-saita/joomla/adminka.html" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+  <div class="form-item form-type-searchfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Поиск </label>
+ <input title="Введите искомые термины." type="search" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text form-search form-control" placeholder="Поиск">
+</div>
+<div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit" name="op" value="Поиск" class="form-submit search-btn"></div><input type="hidden" name="form_build_id" value="form-yqsSUtERzdBTfq_qkY0JI0FXh9dhoink5-Y12S0wZqw">
+<input type="hidden" name="form_id" value="search_block_form">
+</div>
+</div></form></div>
+	    	  </div>
+
+		  </div><!-- /.container-fluid -->
+		</nav>
+
+
+	</header><!--header-->
+
+	<section id="middle" class="index-midle">
+		
+
+
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-md-12 col-lg-9 col-lg-push-3">
+
+					<div class="content">
+						<div class="content-menu">
+							<div class="blue-block">
+								<div id="block-menu-menu-sites" class="block block-menu">
+
+				<span class="menu-title">Создание сайтов</span>
+		
+    <ul class="menu"><li class="first leaf"><a href="http://www.seostop.ru/sozdanie-saita.html">С чего начать</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/sozdanie-saita/html-css.html">Сайт на HTML, CSS</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/sozdanie-saita/joomla.html">Сайт на Joomla</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/sozdanie-saita/wordpress.html">Сайт на Wordpress</a></li>
+<li class="last leaf"><a href="http://www.seostop.ru/sozdanie-saita/onlajn-konstruktor.html">Конструкторы сайтов</a></li>
+</ul></div>
+							</div>
+
+							<div class="green-block">
+								<div id="block-menu-menu-site-promotion" class="block block-menu">
+
+				<span class="menu-title">Продвижение сайтов</span>
+		
+    <ul class="menu"><li class="first leaf"><a href="http://www.seostop.ru/kak-prodvinut-sait.html">С чего начать?</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/prodvizhenie-sajta/klyuchevye-slova.html">Ключевые слова</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/prodvizhenie-sajta/vnutrennyaya-optimizaciya.html">Внутренняя оптимизация</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/prodvizhenie-sajta/povedencheskie-faktory.html">Поведенческие факторы</a></li>
+<li class="last leaf"><a href="http://www.seostop.ru/prodvizhenie-sajta.html">Реклама в интернете</a></li>
+</ul></div>
+							</div>
+
+							<div class="red-block">
+								<div id="block-menu-menu-income" class="block block-menu">
+
+				<span class="menu-title">Монетизация</span>
+		
+    <ul class="menu"><li class="first leaf"><a href="http://www.seostop.ru/zarabotok-v-internete.html">Заработок в интернете</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/zarabotok-v-internete/na-svoem-saite.html">Заработок на сайте</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/zarabotok-v-internete/frilans.html">Фриланс</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/zarabotok-v-internete/partnerskie-programmy.html">Партнерские программы</a></li>
+<li class="last leaf"><a href="http://www.seostop.ru/biznes-v-internete.html">Бизнес в интернете</a></li>
+</ul></div>
+							</div>
+
+							<div class="orange-block">
+								<div id="block-menu-menu-usefull" class="block block-menu">
+
+				<span class="menu-title">Полезное</span>
+		
+    <ul class="menu"><li class="first leaf"><a href="http://www.seostop.ru/tools/kolichestvo-simvolov-onlayn.html">Счетчик знаков</a></li>
+<li class="leaf"><a href="https://translitonline.com/" target="_blank">Транслитерация</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/tools.html">Все сервисы</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/sozdanie-saita/skidka-na-hosting.html">Лучший хостинг</a></li>
+<li class="last leaf"><a href="http://www.seostop.ru/sozdanie-saita/videouroki.html">Видеоуроки</a></li>
+</ul></div>
+							</div>
+						</div><!-- content-menu end -->
+
+						<div class="content-blcok">
+														
+															<div class="item-list"><ol class="breadcrumb"><li class="first"><a href="http://www.seostop.ru/">Главная</a></li>
+<li><a href="http://www.seostop.ru/sozdanie-saita/joomla.html">Создание сайта на Joomla</a></li>
+<li class="last">Админ панель</li>
+</ol></div>							
+<div class="adslinks">
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Seostop Links -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1785674381620944" data-ad-slot="6001496251" data-ad-format="link" hsi1h4u="" hidden=""></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+																						<h1 class="title" id="page-title">Админ панель Joomla 3							</h1>														
+															<div class="tabs"></div>
+																					
+							<div class="content-body">
+								  <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+			
+    <div id="node-273" class="node node-page clearfix" about="/sozdanie-saita/joomla/adminka.html" typeof="foaf:Document">
+
+		<span property="dc:title" content="Админ панель Joomla 3" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="1" datatype="xsd:integer" class="rdf-meta element-hidden"></span>	<div class="adsadaptiv">
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Seostop адаптивные блоки топ -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1785674381620944" data-ad-slot="9766740089" data-ad-format="auto" hsi1h4u="" hidden=""></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    
+</div>
+	<div class="article-content">
+        
+	<p>Joomla располагает мощной, функциональной, но при этом довольно понятной панелью администратора, с помощью которой можно менять дизайн и функциональность сайта, а также наполнять его контентом и настраивать через удобный графический интерфейс.</p>
+<p>Чтобы попасть в панель управления движком, достаточно перейти по адресу вида <strong>адрес_сайта/administrator/</strong> (например, у меня на локальном хостинге этот URL такой: <strong>test1.ru/administrator/</strong>), на отобразившейся странице авторизоваться (ввести указанные во время установки движка логин и пароль) и нажать кнопку <strong>Войти</strong>.</p>
+<div class="img-content-wrap pull-left">
+<a href="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-01.jpg"><img alt="Страница входа в административную панель Joomla" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-01.jpg" style="float: left; height: 387px; width: 680px;"></a></div>
+<p>После этого в браузере отобразится главная страница панели управления, основная часть которой занята блоками с предупреждением о наличии важных сообщений (чтобы он исчез, достаточно прочесть их и для каждого нажать кнопку <strong>Скрыть это сообщение</strong>), о переносе сайта на хостинг, списком авторизаций и популярных статей, размещённых на вашем сайте (у нас их список не пуст, потому что при установке была выбрана загрузка демо-контента).</p>
+<div class="img-content-wrap pull-left">
+<a href="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-02.jpg"><img alt="Главная страница административной панели" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-02.jpg" style="float: left; height: 387px; width: 680px;"></a></div>
+<p>Вверху админ-панели отображается главное меню, которое от страницы к странице остаётся неизменным. По мере установки расширений оно будет пополняться новыми пунктами. Слева находятся своего рода быстрые ссылки. Они дублируют пункты основного меню, но набор их меняется в зависимости от того, на какой странице админки вы сейчас находитесь. Предназначено боковое меню исключительно для удобства и ускорения работы с панелью управления движком. В самом низу страниц можно увидеть некоторую вспомогательную информацию, там же есть ссылка для перехода к просмотру сайта.</p><div id="block-block-8" class="block block-block">
+
+			
+    <!-- Yandex.RTB R-A-205183-7 -->
+<div id="yandex_rtb_R-A-205183-7"></div>
+<script type="text/javascript">
+    (function(w, d, n, s, t) {
+        w[n] = w[n] || [];
+        w[n].push(function() {
+            Ya.Context.AdvManager.render({
+                blockId: "R-A-205183-7",
+                renderTo: "yandex_rtb_R-A-205183-7",
+                async: true
+            });
+        });
+        t = d.getElementsByTagName("script")[0];
+        s = d.createElement("script");
+        s.type = "text/javascript";
+        s.src = "//an.yandex.ru/system/context.js";
+        s.async = true;
+        t.parentNode.insertBefore(s, t);
+    })(this, this.document, "yandexContextAsyncCallbacks");
+</script></div>
+<p></p>
+<div class="img-content-wrap pull-left">
+<a href="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-03.jpg"><img alt="Меню в админ панели" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-03.jpg" style="float: left; height: 387px; width: 680px;"></a></div>
+<p>Практически на всех страницах кроме главной в правом верхнем углу вы увидите кнопки <strong>Справка </strong>и <strong>Настройки</strong>. Щелчок на первой откроет помощь по текущему разделу панели управления, нажатие второй перенесёт вас в настройки этого раздела.</p>
+<div class="img-content-wrap pull-left">
+<a href="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-04.jpg"><img alt="Кнопки Справка и Настройки" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-04.jpg" style="float: left; height: 387px; width: 680px;"></a></div>
+<p>Теперь пришло время коротко рассказать о пунктах главного меню, попутно настраивая движок.</p>
+<h2>Система</h2>
+<p><a href="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-05.jpg"><img alt="Меню Система" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-05.jpg" style="font-style: normal; font-variant: normal; font-weight: normal; font-size: 14px; line-height: 18px; font-family: Verdana, Arial, sans-serif; max-width: 100%; width: 680px; height: 387px; background-color: rgb(255, 255, 255);"></a></p>
+<ul><li><strong>Панель управления.&nbsp;</strong>Этот пункт позволяет перейти на её главную страницу. К сожалению, доступен он не всегда, и в такие моменты новичкам испытывают дискомфорт. А между тем всё просто: если пункт Панель управления недоступен, то вы, вероятно, открыли одну из страниц редактирования, для выхода из которого достаточно нажать кнопку <strong>Закрыть</strong>.</li>
+<li><strong>Общие настройки.</strong> Обратите внимание, что они разбиты на вкладки. В первой (<strong>Сайт</strong>) можно изменить заданное во время инсталляции Joomla имя ресурса, закрыть сайт на время выполнения технических работ (при этом настраивается видимое пользователям сообщение и картинка), убрать показ версии Joomla, указать метаданные (ключевые слова и описание для поисковиков) и настроить другие параметры SEO.</li>
+</ul><p>Самой полезной настройкой вкладки <strong>Система </strong>является, пожалуй, время жизни сессии. По умолчанию в одноимённом поле установлена цифра 15, именно поэтому админ-панель требует реавторизации каждые 15 минут. С одной стороны, это сделано в целях повышения безопасности, с другой стороны, такое время сессии доставляет массу неудобств, поэтому увеличьте его, изменив значение 15 на своё, и нажмите кнопку <strong>Сохранить </strong>в левой верхней части страницы, чтобы зафиксировать изменения.</p>
+<p>Посмотрите на меню слева: из общих настроек вы можете попасть в настройки какого угодно раздела панели управления движком.</p><div id="block-block-12" class="block block-block">
+
+			
+    <script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Seostop 6 abz -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1785674381620944" data-ad-slot="9454362083" data-ad-format="auto" hsi1h4u="" hidden=""></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+<p></p>
+<ul><li><strong>Снять блокировки.&nbsp;</strong>Позволяет разблокировать тот или иной материал.</li>
+</ul><div class="img-content-wrap pull-left"><a href="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-06.jpg"><img alt="Меню слева" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-06.jpg" style="float: left; height: 387px; width: 680px;"></a></div>
+<ul><li><strong>Очистить весь кэш и Очистить устаревший кэш.</strong> Пункты предназначены, чтобы удалять временные файлы, создаваемые CMS для ускорения загрузки страниц сайта. Особенно рекомендуется очищать кэш после внесения серьёзных или многочисленных изменений.</li>
+<li><strong>Информация о системе.</strong> Страница содержит сведения о Joomla и о сервере, на котором она работает.</li>
+</ul><h2>Пользователи</h2>
+<div class="img-content-wrap pull-left">
+<a href="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-07.jpg"><img alt="Меню Пользователи" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-07.jpg" style="float: left; height: 387px; width: 680px;"></a></div>
+<p>Это подменю предназначено для работы с учётными записями.</p>
+<ul><li><strong>Менеджер пользователей.</strong> Позволяет управлять отдельно взятыми учётными записями — активировать, блокировать, удалять и т. д. Есть функции пакетной обработки на случай, если регистраций было чересчур много. Подраздел <strong>Создать пользователя</strong> даёт возможность добавить учётную запись непосредственно из админ-панели, не регистрируя её на сайте стандартным способом.</li>
+<li><strong>Группы.</strong> Если предыдущий пункт обеспечивает индивидуальный подход, позволяя работать с отдельно взятым пользователем, то здесь работа ведётся с группами учётных записей, которых в Joomla насчитывается около десятка. Категории напрямую связаны с привилегиями. Больше всего прав имеет группа пользователей <strong>Super Users</strong> — они могут делать на сайте всё, что угодно. Самые бесправные — гости (<strong>Guest</strong>), они могут только просматривать сайт. Если существующих групп вам мало, никто не запрещает создавать собственные.</li>
+<li><strong>Уровни доступа.</strong> Здесь можно управлять привилегиями пользователей. Разбиение на группы позволяет разрешать какие-то действия одним и запрещать их же другим. Уровнями доступа имеет смысл пользоваться на крупных сайтах, где работает множество людей, среди которых есть копирайтеры, администраторы, контент-менеджеры.</li>
+<li><strong>Заметки о пользователях.</strong> К каждой учётной записи можно прикрепить примечание, но, опять-таки, эта функция целесообразна только для больших порталов с внушительным количеством регистраций.</li>
+<li><strong>Категории заметок. </strong>Примечания, как и пользователи, группируются, и это подменю позволяет категориями управлять, но на начальном этапе создания сайта функция не нужна.</li>
+<li><strong>Массовая рассылка сообщений. </strong>Позволяет оповестить о чём-либо сразу всех пользователей или отдельную их группу, что бывает крайне удобно, опять же, когда посетителей зарегистрировалось уже довольно много.</li>
+</ul><h2>Меню</h2>
+<div class="img-content-wrap pull-left">
+<a href="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-08.jpg"><img alt="Меню Меню" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-08.jpg" style="float: left; height: 387px; width: 680px;"></a></div>
+<p>О создании пунктов меню мы подробно поговорим в этой статье, а пока ограничимся знанием, что этот раздел содержит все присутствующие на сайте меню и инструменты управления ими.</p>
+<h2>Материалы</h2>
+<div class="img-content-wrap pull-left">
+<a href="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-09.jpg"><img alt="Меню Материалы" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-09.jpg" style="float: left; height: 387px; width: 680px;"></a></div>
+<p>Из этого раздела можно управлять статьями, их категориями, а также медиа-контентом (картинки, звук, видео).</p>
+<p>Во время инсталляции Joomla мы установили демо-данные, в теории которые позволяют быстрее научиться управлять CMS, а на практике являются английскими и только затрудняют процесс. В связи с этим предлагаю удалить демо-данные, тем более что этот полезный навык может не раз пригодиться в будущем.</p>
+<p>1. Откройте <strong>Материалы -&gt; Избранные материалы</strong>.</p>
+<p>2. Выделите демонстрационные статьи (то есть все, если сами ни одной не создавали) и нажмите кнопку <strong>В корзину</strong>.</p>
+<div class="img-content-wrap pull-left">
+<a href="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-10.jpg"><img alt="Удаление демонстрационных статей" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-10.jpg" style="float: left; height: 387px; width: 680px;"></a></div>
+<p>3. Кроме материалов при установке демо-данных были созданы ещё и пункты меню. Перейдите в раздел <strong>Меню -&gt; Менеджер меню</strong>.</p>
+<p>4. Выделите ненужные пункты и удалите их.</p>
+<div class="img-content-wrap pull-left">
+<a href="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-11.jpg"><img alt="Удаление пунктов меню" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-11.jpg" style="float: left; height: 387px; width: 680px;"></a></div>
+<h2>Компоненты</h2>
+<div class="img-content-wrap pull-left">
+<a href="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-12.jpg"><img alt="Страница Компоненты" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-12.jpg" style="float: left; height: 387px; width: 680px;"></a></div>
+<p>Расширения в Joomla делятся на три типа: <strong>плагины</strong>, <strong>компоненты </strong>и <strong>модули</strong>. Подробно об этом вы узнаете несколько позже, но если говорить вкратце, компонент — самый функциональный вид расширений движка, который по сути сам представляет собой небольшую CMS и даже может иметь свои плагины. Именно такие расширения и содержит подменю Компоненты. Сразу вместе с Joomla устанавливаются следующие расширения такого типа.</p>
+<ul><li><strong>Баннеры.</strong> Добавление рекламных баннеров на страницы ресурса и получение по ним исчерпывающей статистики в дальнейшем: просмотры, клики — всё, как полагается.</li>
+<li><strong>Контакты.</strong> Предназначен для создания страницы с формой обратной связи и, собственно, контактными данными владельца сайта.</li>
+<li><strong>Ленты новостей.</strong> С помощью этого компонента можно легко наполнить свой сайт чужим контентом, выводя новости из сторонних RSS-лент.</li>
+<li><strong>Обновление Joomla.</strong> Расширение, позволяющее устанавливать свежие версии движка. Заглядывать в него необязательно, так как сразу после нового релиза CMS информация об этом и кнопка обновления будут ждать вас на главной странице админки.</li>
+<li><strong>Метки.</strong> Позволяет управлять тегами. Если материал принято относить к одной категории, то меток ему можно задать сколько угодно, благодаря чему пользователю будет ещё проще ориентироваться на сайте и искать статьи на интересующую его тему.</li>
+<li><strong>Перенаправления.</strong> Настройка переадресаций с одного сайта на другой (например, 301-й редирект).</li>
+<li><strong>Поиск.</strong> Познакомит вас с анализом поисковых запросов.</li>
+<li><strong>Системные сообщения.</strong> Компонент уже преследовал нас на главной странице панели управления, говоря, что есть непрочитанные системные сообщения — с ним вы уже немного знакомы.</li>
+<li><strong>Сообщения.</strong> Предназначен для чтения и отправки приватных сообщений.</li>
+<li><strong>Умный поиск.</strong> Компонент, который помогает пользователю ввести запрос, дополняя незаконченное слово, как это делают «Яндекс» или Google. Использование компонента увеличивает нагрузку на сервер, потому как этот интеллектуальный поиск не работает без индексации страниц.</li>
+</ul><h2>Расширения</h2>
+<div class="img-content-wrap pull-left">
+<a href="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-13.jpg"><img alt="Меню Расширения" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-13.jpg" style="float: left; height: 387px; width: 680px;"></a></div>
+<p>В этом подменю собраны плагины, модули, шаблоны и языки — практически все дополнения, кроме компонентов, хотя устанавливаются последние именно отсюда.</p>
+<ul><li><strong>Менеджер расширений.</strong> Позволяет установить всё: язык, шаблон, компонент, плагин или модуль, а после инсталляции — всем этим управлять.</li>
+<li><strong>Менеджер модулей.</strong> Позволяет управлять видом расширений, которые выводится в специально отведённых для этого местах темы оформления (примерно как виджеты в WordPress) и внутри материалов.</li>
+<li><strong>Менеджер плагинов.</strong> Плагины расширяют функционал Joomla, а это подменю позволяет ими управлять.</li>
+<li><strong>Менеджер шаблонов.</strong> Отвечает за управление темами оформления движка.</li>
+<li><strong>Менеджер языков.</strong> Здесь можно увидеть, какие пакеты уже установлены, при необходимости загрузить новые и настроить языки.</li>
+</ul><h2>Справка</h2>
+<div class="img-content-wrap pull-left">
+<a href="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-14.jpg"><img alt="Меню Справка" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/J-04-14.jpg" style="float: left; height: 387px; width: 680px;"></a></div>
+<p>Понятно, что этот раздел предназначен для получения помощи. К сожалению, большинство разделов этого меню не переведены на русский, однако при возникновении вопросов вы можете обратиться в русское сообщество Joomla, чтобы попасть в которое щёлкните <strong>Официальный русский форум</strong> и на открывшейся странице перейдите в ветку <strong>Russian Forum</strong>.</p>
+	</div>
+<div class="yadirbottom">
+<!-- Yandex.RTB R-A-205183-5 -->
+<div id="yandex_rtb_R-A-205183-5"></div>
+<script type="text/javascript">
+    (function(w, d, n, s, t) {
+        w[n] = w[n] || [];
+        w[n].push(function() {
+            Ya.Context.AdvManager.render({
+                blockId: "R-A-205183-5",
+                renderTo: "yandex_rtb_R-A-205183-5",
+                horizontalAlign: false,
+                async: true
+            });
+        });
+        t = d.getElementsByTagName("script")[0];
+        s = d.createElement("script");
+        s.type = "text/javascript";
+        s.src = "//an.yandex.ru/system/context.js";
+        s.async = true;
+        t.parentNode.insertBefore(s, t);
+    })(this, this.document, "yandexContextAsyncCallbacks");
+</script>
+</div>
+	<div class="divider"></div>
+				<div class="social-wrap">
+			
+	<div class="social-buttons"><span class="social-button"><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/FdM1l_dpErI.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/FdM1l_dpErI(1).html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div><script> (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs);}(document, "script", "facebook-jssdk"));</script> <div class="fb-like fb_iframe_widget" data-send="false" data-layout="button_count" data-width="1" data-show-faces="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;container_width=0&amp;href=http%3A%2F%2Fwww.seostop.ru%2Fsozdanie-saita%2Fjoomla%2Fadminka.html&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=1"><span style="vertical-align: bottom; width: 61px; height: 20px;"><iframe name="f2845c9a12e2164" width="1px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/like.html" style="border: none; visibility: visible; width: 61px; height: 20px;" class=""></iframe></span></div></span><span class="social-button"><div id="vk_like"></div>
+<script type="text/javascript">
+VK.Widgets.Like("vk_like", {type: "button"});
+</script></span><span class="social-button"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 77px; height: 20px;" title="Twitter Tweet Button" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/tweet_button.4ed13d9ce94e60c41048ece32559b04c.ru.html"></iframe><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></span><span class="social-button"><div style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 32px; height: 20px;" id="___plusone_0"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 32px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1522420793787" name="I0_1522420793787" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/fastbutton.html" data-gapiattached="true" title="G+"></iframe></div><script>(function() {var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);})();</script></span></div>		</div>
+				<div class="title-h2">Смотрите также</div>
+		<div class="similars-node news-body row">
+			
+	<div class="col-xs-6 col-sm-4">
+		<div id="node-436" class="node node-page node-teaser clearfix" about="/sozdanie-saita/joomla.html" typeof="foaf:Document">
+
+		<span property="dc:title" content="Создание сайта на CMS Joomla" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>	
+	<div class="img-responsive">
+					
+	<a href="http://www.seostop.ru/sozdanie-saita/joomla.html"><img typeof="foaf:Image" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/3-joomla.jpg" width="235" height="153" alt=""></a>			</div>
+	<div class="heading-wrap">
+		<a href="http://www.seostop.ru/sozdanie-saita/joomla.html">Создание сайта на CMS Joomla</a>
+	</div>
+
+</div>
+	</div>
+	<div class="col-xs-6 col-sm-4">
+		<div id="node-272" class="node node-page node-teaser clearfix" about="/sozdanie-saita/joomla/ustanovka-na-hosting.html" typeof="foaf:Document">
+
+		<span property="dc:title" content="Установка CMS Joomla на хостинг: на примере Beget" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="2" datatype="xsd:integer" class="rdf-meta element-hidden"></span>	
+	<div class="img-responsive">
+					
+	<a href="http://www.seostop.ru/sozdanie-saita/joomla/ustanovka-na-hosting.html"><img typeof="foaf:Image" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/3-ustanovka-na-hosting.png" width="235" height="153" alt=""></a>			</div>
+	<div class="heading-wrap">
+		<a href="http://www.seostop.ru/sozdanie-saita/joomla/ustanovka-na-hosting.html">Установка CMS Joomla на хостинг: на примере Beget</a>
+	</div>
+
+</div>
+	</div>
+	<div class="col-xs-6 col-sm-4">
+		<div id="node-274" class="node node-page node-teaser clearfix" about="/sozdanie-saita/joomla/ustanovka-shablona.html" typeof="foaf:Document">
+
+		<span property="dc:title" content="Установка шаблона на Joomla 3" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="2" datatype="xsd:integer" class="rdf-meta element-hidden"></span>	
+	<div class="img-responsive">
+					
+	<a href="http://www.seostop.ru/sozdanie-saita/joomla/ustanovka-shablona.html"><img typeof="foaf:Image" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/5-ustanovka-shablona.jpg" width="235" height="153" alt=""></a>			</div>
+	<div class="heading-wrap">
+		<a href="http://www.seostop.ru/sozdanie-saita/joomla/ustanovka-shablona.html">Установка шаблона на Joomla 3</a>
+	</div>
+
+</div>
+	</div>
+			
+		</div>
+				<div class="adssquarecom">
+<!-- Yandex.RTB R-A-205183-6 -->
+<div id="yandex_rtb_R-A-205183-6"></div>
+<script type="text/javascript">
+    (function(w, d, n, s, t) {
+        w[n] = w[n] || [];
+        w[n].push(function() {
+            Ya.Context.AdvManager.render({
+                blockId: "R-A-205183-6",
+                renderTo: "yandex_rtb_R-A-205183-6",
+                horizontalAlign: false,
+                async: true
+            });
+        });
+        t = d.getElementsByTagName("script")[0];
+        s = d.createElement("script");
+        s.type = "text/javascript";
+        s.src = "//an.yandex.ru/system/context.js";
+        s.async = true;
+        t.parentNode.insertBefore(s, t);
+    })(this, this.document, "yandexContextAsyncCallbacks");
+</script>
+<!--				    
+<div class="clear"></div>			
+<div class="squareleft">				    
+</div>
+<div class="squareright">
+</div>
+<div class="clear"></div>
+-->
+</div>
+		
+			
+<div id="comments" class="comment-wrapper comment-wrapper-nid-273">
+	
+			<form class="comment-form ajax-comments-reply-form-273-0-0 ajax-comments-form-add antibot-hidden" id="ajax-comments-reply-form-273-0-0" style="" action="http://www.seostop.ru/antibot" method="post" accept-charset="UTF-8"><div><div class="write-comment">
+	<span class="title">Оставить свой комментарий</span>
+	<div class="coments-form">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="form-input pull-left">
+					<span class="user-icon"></span>
+					<div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name" style="display: none;">Имя </label>
+ <input type="text" id="edit-name" name="name" value="" size="30" maxlength="60" class="form-text" placeholder="Имя">
+</div>
+				</div>
+			</div>
+			
+<!-- 			<div class="col-xs-6"> -->
+<!-- 				<div class="form-input pull-right"> -->
+<!-- 					<span class="mail-icon"></span> -->
+					<!-- 				</div> -->
+<!-- 			</div> -->
+		</div>
+
+		<div class="field-type-text-long field-name-comment-body field-widget-text-textarea form-wrapper" id="edit-comment-body"><div id="comment-body-add-more-wrapper"><div class="form-item form-type-textarea form-item-comment-body-und-0-value">
+  <label for="edit-comment-body-und-0-value" style="display: none;">Комментарий <span class="form-required" title="Заполните это поле.">*</span></label>
+ <div class="form-textarea-wrapper resizable textarea-processed resizable-textarea"><textarea class="text-full form-textarea required" id="edit-comment-body-und-0-value" name="comment_body[und][0][value]" cols="60" rows="5" placeholder="Комментарий *"></textarea><div class="grippie"></div></div>
+</div>
+</div></div>
+		<div class="form-button">
+			<input type="hidden" name="form_build_id" value="form-nhaR4vdrfcYB_itdiuUamxnrudU2sNX-s4sV_TUjUKA">
+			<input type="hidden" name="form_id" value="comment_node_page_form">
+			<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-ajax-comments-reply-form-273-0-0" name="op" value="Сохранить" class="form-submit ajax-processed btn"></div>			<input type="hidden" name="honeypot_time" value="1522420792|6KhQgWAArUKkPSn8yGBKxnPwOT2I-LRfVGPIaDawQRw">
+<div class="seostopurl-textfield"><div class="form-item form-type-textfield form-item-seostopurl">
+  <label for="edit-seostopurl" style="display: none;">Leave this field blank </label>
+ <input autocomplete="off" type="text" id="edit-seostopurl" name="seostopurl" value="" size="20" maxlength="128" class="form-text" placeholder="Leave this field blank">
+</div>
+</div>		</div>
+	</div>
+</div></div></form>		
+			<div class="coments">
+			<span class="coments-title">Комментарии <span class="count">1</span></span>
+						<ul class="comtents-list">
+				<a id="comment-1934"></a>
+
+<li class="comment comment-by-anonymous ajax-comment-wrapper comment-wrapper-1934 clearfix" about="/comment/1934#comment-1934" typeof="sioc:Post sioct:Comment">
+	<div class="coment-body">
+		<span class="user-name">александр </span>
+		<span class="post-time">17 Января 2018 в 12:52</span>
+		<p class="message">
+	</p><p>Как поменять язык в контрольной панели? Не могу выставить русский.</p>
+<p></p>
+	</div>
+		<a href="http://www.seostop.ru/comment/reply/273/1934" class="use-ajax-comments ajax-comments-reply ajax-comments-reply-273-1934 answer-link ajax-processed">ответить</a></li>
+<div class="ajax-comment-wrapper ajax-comment-dummy-comment" style="display:none"><div class="form-item form-type-item">
+ 
+</div>
+</div>			</ul>
+		</div>
+	
+	
+</div>
+	
+</div>
+</div>
+  </div>
+							</div>
+							
+						</div><!-- content-blcok end -->
+
+																								</div>
+
+				</div>
+
+				<div class="col-sm-3 col-lg-pull-9">
+
+					<div class="aside-wrap">
+						<div class="aside-links">
+							<nav class="navbar navbar-default">
+							  <div class="container">
+							    
+						          <ul class="nav navbar-nav navbar-left">
+<li class="home-icon"><a href="http://www.seostop.ru/sozdanie-saita/joomla/adminka.html#"><span class="home"></span></a></li>
+<li class=""><a href="http://www.seostop.ru/">Главная</a></li>
+<li class=""><a href="http://www.seostop.ru/soderzhanie.html">Содержание</a></li>
+<li class=""><a href="http://www.seostop.ru/blog.html">Блог</a></li>
+<li class=""><a href="http://www.seostop.ru/moi-uslugi.html">Реклама</a></li>
+<li class=""><a href="http://www.seostop.ru/o-sayte.html">О сайте</a></li>
+
+</ul>
+						    	  <form class="navbar-form navbar-right" role="search">
+						    	    <div class="form-group">
+						    	      <input type="text" class="form-control" placeholder="Поиск">
+						    	    </div>
+						    	    <button type="submit" class="search-btn"></button>
+						    	  </form>
+
+							  </div><!-- /.container-fluid -->
+							</nav>
+
+							<div class="content-menu visible-xs">
+								<div class="blue-block">
+									<div id="block-menu-menu-sites--2" class="block block-menu">
+
+				<span class="menu-title">Создание сайтов</span>
+		
+    <ul class="menu"><li class="first leaf"><a href="http://www.seostop.ru/sozdanie-saita.html">С чего начать</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/sozdanie-saita/html-css.html">Сайт на HTML, CSS</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/sozdanie-saita/joomla.html">Сайт на Joomla</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/sozdanie-saita/wordpress.html">Сайт на Wordpress</a></li>
+<li class="last leaf"><a href="http://www.seostop.ru/sozdanie-saita/onlajn-konstruktor.html">Конструкторы сайтов</a></li>
+</ul></div>
+								</div>
+
+								<div class="green-block">
+									<div id="block-menu-menu-site-promotion--2" class="block block-menu">
+
+				<span class="menu-title">Продвижение сайтов</span>
+		
+    <ul class="menu"><li class="first leaf"><a href="http://www.seostop.ru/kak-prodvinut-sait.html">С чего начать?</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/prodvizhenie-sajta/klyuchevye-slova.html">Ключевые слова</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/prodvizhenie-sajta/vnutrennyaya-optimizaciya.html">Внутренняя оптимизация</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/prodvizhenie-sajta/povedencheskie-faktory.html">Поведенческие факторы</a></li>
+<li class="last leaf"><a href="http://www.seostop.ru/prodvizhenie-sajta.html">Реклама в интернете</a></li>
+</ul></div>
+								</div>
+
+								<div class="red-block">
+									<div id="block-menu-menu-income--2" class="block block-menu">
+
+				<span class="menu-title">Монетизация</span>
+		
+    <ul class="menu"><li class="first leaf"><a href="http://www.seostop.ru/zarabotok-v-internete.html">Заработок в интернете</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/zarabotok-v-internete/na-svoem-saite.html">Заработок на сайте</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/zarabotok-v-internete/frilans.html">Фриланс</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/zarabotok-v-internete/partnerskie-programmy.html">Партнерские программы</a></li>
+<li class="last leaf"><a href="http://www.seostop.ru/biznes-v-internete.html">Бизнес в интернете</a></li>
+</ul></div>
+								</div>
+
+								<div class="orange-block">
+									<div id="block-menu-menu-usefull--2" class="block block-menu">
+
+				<span class="menu-title">Полезное</span>
+		
+    <ul class="menu"><li class="first leaf"><a href="http://www.seostop.ru/tools/kolichestvo-simvolov-onlayn.html">Счетчик знаков</a></li>
+<li class="leaf"><a href="https://translitonline.com/" target="_blank">Транслитерация</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/tools.html">Все сервисы</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/sozdanie-saita/skidka-na-hosting.html">Лучший хостинг</a></li>
+<li class="last leaf"><a href="http://www.seostop.ru/sozdanie-saita/videouroki.html">Видеоуроки</a></li>
+</ul></div>
+								</div>
+							</div><!-- content-menu end -->
+						</div>
+
+						<aside class="aside">
+							<div class="logo">
+								<a href="http://www.seostop.ru/">
+									<img src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/logo(1).png" alt="logo">
+								</a>
+							</div>
+							<div class="slogan"><span>Seostop.ru</span> - обучающие материалы по созданию и продвижению сайтов и заработку в интернете</div>
+
+							  <div class="region region-left">
+    <div id="block-menu-menu-left-inner" class="block block-menu">
+
+				<div class="panel-group" id="aside-accordion">
+		<div class="panel panel-default"><div class="panel-heading">
+<h4 class="panel-title">
+<a data-toggle="collapse" data-parent="#aside-accordion" href="http://www.seostop.ru/sozdanie-saita/html-css.html">Создание сайта на HTML, CSS</a></h4></div><div id="collapse3258" class="panel-collapse collapse">
+<div class="panel-body"><ul>
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/bloknot.html">Как создать сайт в блокноте?</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/dreamweaver.html">Adobe Dreamweaver</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/vvedenie.html">Знакомство с HTML</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/tegi.html">HTML-теги</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/atributy.html">Атрибуты тегов</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/formatirovanie-teksta.html">Форматирование текста</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/spiski.html">HTML списки</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/ssylki.html">Как сделать ссылку?</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/izobrazheniya.html">Как вставить картинку?</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/tablicy.html">Cоздание таблицы</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/tablichnaja-verstka.html">Табличная верстка</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/frejmy.html">Фреймы</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/web-formy.html">Создание форм</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/stili.html">Что такое CSS стили?</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/stili-teksta.html">Оформление текста с CSS</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/stili-shriftov.html">Шрифты CSS</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/stili-ssylok.html">Ссылки CSS</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/stili-tablic.html">Таблицы CSS</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/stili-spiskov.html">Списки CSS</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/stili-fona.html">Фон CSS</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/stili-ramok.html">Рамки CSS</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/blochnaya-verstka.html">Блочная верстка сайта</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/php-include.html">PHP include</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/shablon.html">Дизайн сайта</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/verstka-iz-pcd.html">Верстка дизайна</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/html-css/cms.html">Знакомство с CMS</a></li>
+
+</ul>
+</div>
+</div></div><div class="panel panel-default"><div class="panel-heading">
+<h4 class="panel-title">
+<a data-toggle="collapse" data-parent="#aside-accordion" href="http://www.seostop.ru/sozdanie-saita/wordpress.html">Создание сайта на WordPress</a></h4></div></div><div class="active-trail panel panel-default active"><div class="panel-heading">
+<h4 class="panel-title">
+<a data-toggle="collapse" data-parent="#aside-accordion" href="http://www.seostop.ru/sozdanie-saita/joomla.html">Создание сайта на Joomla</a></h4></div><div id="collapse5390" class="panel-collapse collapse in">
+<div class="panel-body"><ul>
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/joomla/vvedenie.html">Знакомство с Joomla</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/joomla/ustanovka-na-localhost.html">Установка на Denwer</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/joomla/ustanovka-na-hosting.html">Установка на хостинг</a></li>
+
+<li class="active">
+<a href="http://www.seostop.ru/sozdanie-saita/joomla/adminka.html" class="active">Админ панель</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/joomla/ustanovka-shablona.html">Установка шаблона</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/joomla/stranicy-menu.html">Создание страниц</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/joomla/sozdanie-kategorii.html">Создание разделов и категорий</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/joomla/tipy-menu.html">Создание пунктов меню</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/joomla/obratnaya-svyaz.html">Создание формы обратной связи</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/joomla/rasshireniya.html">Расширения для Joomla</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/fotogalereya.html">Создание фотогалереи</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/joomla/verstka-shablona.html">Верстка шаблона из HTML</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/joomla/perenos.html">Перенос сайта на хостинг</a></li>
+
+<li>
+<a href="http://www.seostop.ru/sozdanie-saita/joomla/internet-magazin.html">Создание интернет-магазина</a></li>
+
+</ul>
+</div>
+</div></div><div class="panel panel-default"><div class="panel-heading">
+<h4 class="panel-title">
+<a data-toggle="collapse" data-parent="#aside-accordion" href="http://www.seostop.ru/sozdanie-saita/opencart.html">Интернет-магазин на Opencart</a></h4></div></div><div class="panel panel-default"><div class="panel-heading">
+<h4 class="panel-title">
+<a data-toggle="collapse" data-parent="#aside-accordion" href="http://www.seostop.ru/fotoshop.html">Уроки фотошопа</a></h4></div></div><div class="panel panel-default"><div class="panel-heading">
+<h4 class="panel-title">
+<a data-toggle="collapse" data-parent="#aside-accordion" href="http://www.seostop.ru/sozdanie-saita/onlajn-konstruktor.html">Онлайн конструкторы сайтов</a></h4></div></div><div class="panel panel-default"><div class="panel-heading">
+<h4 class="panel-title">
+<a data-toggle="collapse" data-parent="#aside-accordion" href="http://www.seostop.ru/sozdanie-saita/razmeshhenie-v-internete.html">Размещение сайта в интернете</a></h4></div></div><div class="panel panel-default"><div class="panel-heading">
+<h4 class="panel-title">
+<a data-toggle="collapse" data-parent="#aside-accordion" href="http://www.seostop.ru/kak-prodvinut-sait.html">Поисковое продвижение сайта</a></h4></div></div><div class="panel panel-default"><div class="panel-heading">
+<h4 class="panel-title">
+<a data-toggle="collapse" data-parent="#aside-accordion" href="http://www.seostop.ru/prodvizhenie-sajta/vnutrennyaya-optimizaciya.html">Внутренняя оптимизация сайта</a></h4></div></div><div class="panel panel-default"><div class="panel-heading">
+<h4 class="panel-title">
+<a data-toggle="collapse" data-parent="#aside-accordion" href="http://www.seostop.ru/prodvizhenie-sajta/vneshnyaya-optimizaciya.html">Продвижение сайта ссылками</a></h4></div></div><div class="panel panel-default"><div class="panel-heading">
+<h4 class="panel-title">
+<a data-toggle="collapse" data-parent="#aside-accordion" href="http://www.seostop.ru/prodvizhenie-sajta.html">Реклама в интернете</a></h4></div></div><div class="panel panel-default"><div class="panel-heading">
+<h4 class="panel-title">
+<a data-toggle="collapse" data-parent="#aside-accordion" href="http://www.seostop.ru/web-analitika.html">Веб-аналитика</a></h4></div></div><div class="panel panel-default"><div class="panel-heading">
+<h4 class="panel-title">
+<a data-toggle="collapse" data-parent="#aside-accordion" href="http://www.seostop.ru/zarabotok-v-internete.html">Заработок в интернете</a></h4></div><div id="collapse2200" class="panel-collapse collapse">
+<div class="panel-body"><ul>
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/frilans.html">Заработок на фрилансе</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/na-svoem-saite.html">Заработок на своем сайте</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/kontekstnaya-reklama.html">Контекстная реклама</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/google-adsense.html">Google Adsense</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/rsya.html">Рекламная сеть Яндекса</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/uvelichenie-dokhoda-konteksta.html">Увеличение дохода от контекста</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/pryamye-reklamodateli.html">Прямые рекламодатели</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/prodazha-ssylok.html">Продажа ссылок</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/prodazha-ssylok-v-gogetlinks.html">Заработок в GoGetLinks</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/prodazha-ssylok-v-miralinks.html">Заработок в Miralinks</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/prodazha-ssylok-v-sape.html">Продажа ссылок в Sape</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/biznes-na-ssylkah.html">Торговля ссылками</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/prodazha-ssylok-v-rotapost.html">Заработок на своем блоге с RotaPost</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/prodazha-ssylok-s-bystropost.html">Автоматизация продажи вечных ссылок</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/tic-dlya-prodazhy-ssylok.html">ТИЦ для заработка на ссылках</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/vedenie-blogov.html">Ведение блога</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/tizery.html">Тизерная реклама</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/partnerskie-programmy.html">Партнерские программы</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/partnerskie-programmy-cpa.html">CPA партнерки</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/partnerskie-programmy-internet-magazinov.html">Партнерские программы интернет-магазинов</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/arbitrazh-trafika.html">Арбитраж трафика</a></li>
+
+<li>
+<a href="http://www.seostop.ru/zarabotok-v-internete/igry.html">Заработок на играх</a></li>
+
+</ul>
+</div>
+</div></div><div class="panel panel-default"><div class="panel-heading">
+<h4 class="panel-title">
+<a data-toggle="collapse" data-parent="#aside-accordion" href="http://www.seostop.ru/biznes-v-internete.html">Бизнес в интернете</a></h4></div></div>	</div>
+</div>
+<div id="block-menu-menu-services" class="block block-menu aside-block">
+
+				<div class="panel-title">Мои услуги</div>
+			<div class="panel-body">
+		<a href="http://www.seostop.ru/uslugi/sozdanie-saytov.html" class="panel-sub-title"><span class="icon-desctop"></span><span>Создание сайтов</span></a>
+<a href="http://www.seostop.ru/uslugi/prodvizhenie-sajtov.html" class="panel-sub-title"><span class="icon-arrow"></span><span>Продвижение сайтов</span></a>
+<a href="http://www.seostop.ru/uslugi/kontekstnaya-reklama.html" class="panel-sub-title"><span class="icon-article"></span><span>Контекстная реклама</span></a>
+		<div id="block-block-1" class="block block-block panel-inner">
+
+		
+    <p><img alt="Ахметшин Булат" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/user-img.png"></p>
+    		<span class="name">Ахметшин Булат</span>
+		
+</div>
+<a href="mailto:bakhm@yandex.ru" class="icon-mail panel-sub-title"><span class="icon-mail"></span><span>bakhm@yandex.ru</span></a>
+	</div>
+</div>
+<div id="block-block-3" class="block block-block banner">
+
+				
+	<!--<div id="PM_rotator12714" style="display: block; margin: 0; padding: 0; width: 242px; height: 402px;"><script type="text/javascript" src="//1.photoshop-master.org/rotator/rotator.js/12714"></script></div>-->
+<a rel="nofollow" href="https://puzat.ru/?a_aid=93ab564f&amp;a_bid=386fb2c2" target="_blank"><img src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/386fb2c2.jpg" alt="" title="" width="234"></a><img style="border:0" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/ie9l2zzv54" width="1" height="1" alt="">	
+</div>
+  </div>
+							
+						</aside>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</section><!-- #middle-->
+
+	<footer id="footer" class="footer">
+		<div class="container">
+			
+			<div class="footer-body">
+				<div class="content-menu footer-menu">
+					<div class="blue-block">
+						<div id="block-menu-menu-sites--3" class="block block-menu">
+
+				<span class="menu-title">Создание сайтов</span>
+		
+    <ul class="menu"><li class="first leaf"><a href="http://www.seostop.ru/sozdanie-saita.html">С чего начать</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/sozdanie-saita/html-css.html">Сайт на HTML, CSS</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/sozdanie-saita/joomla.html">Сайт на Joomla</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/sozdanie-saita/wordpress.html">Сайт на Wordpress</a></li>
+<li class="last leaf"><a href="http://www.seostop.ru/sozdanie-saita/onlajn-konstruktor.html">Конструкторы сайтов</a></li>
+</ul></div>
+					</div>
+
+					<div class="green-block">
+						<div id="block-menu-menu-site-promotion--3" class="block block-menu">
+
+				<span class="menu-title">Продвижение сайтов</span>
+		
+    <ul class="menu"><li class="first leaf"><a href="http://www.seostop.ru/kak-prodvinut-sait.html">С чего начать?</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/prodvizhenie-sajta/klyuchevye-slova.html">Ключевые слова</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/prodvizhenie-sajta/vnutrennyaya-optimizaciya.html">Внутренняя оптимизация</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/prodvizhenie-sajta/povedencheskie-faktory.html">Поведенческие факторы</a></li>
+<li class="last leaf"><a href="http://www.seostop.ru/prodvizhenie-sajta.html">Реклама в интернете</a></li>
+</ul></div>
+					</div>
+
+					<div class="red-block">
+						<div id="block-menu-menu-income--3" class="block block-menu">
+
+				<span class="menu-title">Монетизация</span>
+		
+    <ul class="menu"><li class="first leaf"><a href="http://www.seostop.ru/zarabotok-v-internete.html">Заработок в интернете</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/zarabotok-v-internete/na-svoem-saite.html">Заработок на сайте</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/zarabotok-v-internete/frilans.html">Фриланс</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/zarabotok-v-internete/partnerskie-programmy.html">Партнерские программы</a></li>
+<li class="last leaf"><a href="http://www.seostop.ru/biznes-v-internete.html">Бизнес в интернете</a></li>
+</ul></div>
+					</div>
+
+					<div class="orange-block">
+						<div id="block-menu-menu-usefull--3" class="block block-menu">
+
+				<span class="menu-title">Полезное</span>
+		
+    <ul class="menu"><li class="first leaf"><a href="http://www.seostop.ru/tools/kolichestvo-simvolov-onlayn.html">Счетчик знаков</a></li>
+<li class="leaf"><a href="https://translitonline.com/" target="_blank">Транслитерация</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/tools.html">Все сервисы</a></li>
+<li class="leaf"><a href="http://www.seostop.ru/sozdanie-saita/skidka-na-hosting.html">Лучший хостинг</a></li>
+<li class="last leaf"><a href="http://www.seostop.ru/sozdanie-saita/videouroki.html">Видеоуроки</a></li>
+</ul></div>
+					</div>
+				</div><!-- content-menu end -->
+
+				<div class="footer-info">
+					<ul class="social">
+						<li><a href="https://vk.com/media_solutions" target="_blank" class="vk"></a></li>
+						<li><a href="http://www.seostop.ru/sozdanie-saita/joomla/adminka.html#" class="facebook"></a></li>
+					</ul>
+
+		<div class="develop">
+						<span class="develop-title">Развитие и продвижение сайта: <a href="https://rucontent.com/" target="_blank">RuContent</a></span>
+						<div class="develop-caption">
+										Размещение рекламы на собственных информационных сайтах.
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="copyright">
+			<div class="container">
+				<p>Copyright ИП Ахметшин Булат Раисович 2010-2017 При копировании материалов сайта рабочая ссылка на seostop.ru обязательна.</p>
+			</div>
+		</div>
+	</footer><!-- #footer -->
+
+</div><!-- #wrapper -->  <div class="ym-counter"><!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter38304195 = new Ya.Metrika({
+                    id:38304195,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript>&lt;div&gt;&lt;img src="https://mc.yandex.ru/watch/38304195" style="position:absolute; left:-9999px;" alt="" /&gt;&lt;/div&gt;</noscript>
+<!-- /Yandex.Metrika counter --></div><script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/clientside_validation.ie8.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/clientside_validation_html5.js.Без названия"></script>
+<script src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/clientside_validation.js.Без названия"></script><iframe name="oauth2relay287729933" id="oauth2relay287729933" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe>
+  <div style="display:none;">
+      <!--LiveInternet counter--><script type="text/javascript"><!--
+      document.write("<a href='//www.liveinternet.ru/click' "+
+      "target=_blank><img src='//counter.yadro.ru/hit?t14.5;r"+
+      escape(document.referrer)+((typeof(screen)=="undefined")?"":
+      ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+      screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+      ";"+Math.random()+
+      "' alt='' title='LiveInternet: показано число просмотров за 24"+
+      " часа, посетителей за 24 часа и за сегодня' "+
+      "border='0' width='88' height='31'><\/a>")
+      //--></script><a href="http://www.liveinternet.ru/click" target="_blank"><img src="http://counter.yadro.ru/hit?t14.5;r;s1920*1080*24;uhttp%3A//www.seostop.ru/sozdanie-saita/joomla/adminka.html;0.19264411522233438" alt="" title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня" border="0" width="88" height="31" hidden="" style="display: none !important;"></a><!--/LiveInternet-->
+  </div>
+
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/widget_iframe.4ed13d9ce94e60c41048ece32559b04c.html" style="display: none;"></iframe><script id="wappalyzer" src="chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/inject.js"></script><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./Админ панель Joomla 3 - вход в админку и базовые настройки_files/saved_resource.html"></iframe><form id="gclp-frame-form" target="gclp-frame" method="post" style="display: none;"></form></body></html>

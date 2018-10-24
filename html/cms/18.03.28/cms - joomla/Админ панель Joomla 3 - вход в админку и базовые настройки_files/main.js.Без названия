@@ -1,0 +1,93 @@
+// JavaScript Document
+(function($){
+	jQuery(document).ready(function() {
+
+		// Scroll up
+
+		$(".scroll-up").click(function () {
+			var elementClick = $(this).attr("href")
+			var destination = $(elementClick).offset().top;
+			jQuery("html:not(:animated),body:not(:animated)").animate({scrollTop: destination}, 800);
+			return false;
+		});
+
+		$(".colapse-btn").click(function () {
+			if ( $(".aside-wrap").hasClass('show-menu') ) {
+				$(".aside-wrap").removeClass("show-menu");
+				$(".dark-wrap").removeClass("dark-wrap-open")
+				$('#wrapper').removeClass("blocked");
+			} else {
+				$(".aside-wrap").addClass("show-menu");
+				$(".dark-wrap").addClass("dark-wrap-open")
+				$('#wrapper').addClass("blocked");
+			}
+			
+		});
+
+// 	  $(".panel").on("show.bs.collapse hide.bs.collapse", function(e) {
+// 		if (e.type=='show'){
+// 		  $(this).addClass('active');
+// 		}else{
+// 		  $(this).removeClass('active');
+// 		}
+// 	  });
+// 		$('#aside-accordion h4 a').click(function(){
+// 			$('#aside-accordion .panel').not($(this).parents('.panel')).removeClass('active');
+// 			$('#aside-accordion .panel .panel-collapse').not($(this).attr('href')).slideUp();
+// 			$('#aside-accordion .panel .panel-collapse').not($(this).attr('href')).removeClass('collapsed');
+// 			$($(this).attr('href')).slideToggle();
+// 			$($(this).attr('href')).toggleClass('collapsed');
+// 			if(!$($(this).attr('href')).hasClass('collapsed')) {
+// 				$(this).parents('.panel').removeClass('active');
+// 			}else {
+// 				$(this).parents('.panel').addClass('active');
+// 			}
+// // 			$($(this).attr('href')).toggleClass('collapsed');
+// 			return false;
+// 		})
+
+	  $(".dark-wrap").click(function () {
+		$(".aside-wrap").removeClass("show-menu");
+		$(".dark-wrap").removeClass("dark-wrap-open")
+		$('#wrapper').removeClass("blocked");
+	  });
+		
+		if($.cookie('block_close')) {
+// 			$('#block-block-10').hide();
+		}
+		$('a.block-close').click(function() {
+			$('#block-block-10').hide();
+			$.cookie('block_close', 1, { expires: 1 });
+		});
+		
+		jsPassGen('jsPassGenForm', 3, 10, true);
+
+
+	});
+	
+	Drupal.behaviors.seostop = {
+        attach: function (context, settings) {
+			$('.write-comment input[type=submit]').addClass('btn');
+			$('#block-menu-menu-left-inner a.active').parent('li').addClass('active');
+			$('#block-menu-menu-left-inner a.active').parents('.panel-default').addClass('active');
+			$('#block-menu-menu-left-inner a.active').parents('.panel-collapse').addClass('in');
+			$('#block-search-form input[type=search]').addClass('form-control');
+			$('#block-search-form input[type=search]').attr('placeholder', 'Поиск');
+			$('#block-search-form input[type=submit]').addClass('search-btn');
+			
+			mail = $('#block-menu-menu-services span.icon-mail').next().text();
+			$('#block-menu-menu-services span.icon-mail').parent('a').attr('href', 'mailto:' + mail);
+			skype = $('#block-menu-menu-services span.icon-skype').next().text();
+			$('#block-menu-menu-services span.icon-skype').parent('a').attr('href', 'skype:' + skype + '?call');
+		}
+	};
+	
+	
+})(jQuery)
+
+// (function($){
+// //Plugin placeholder
+// (function(b,f,i){function l(){b(this).find(c).each(j)}function m(a){for(var a=a.attributes,b={},c=/^jQuery\d+/,e=0;e<a.length;e++)if(a[e].specified&&!c.test(a[e].name))b[a[e].name]=a[e].value;return b}function j(){var a=b(this),d;a.is(":password")||(a.data("password")?(d=a.next().show().focus(),b("label[for="+a.attr("id")+"]").attr("for",d.attr("id")),a.remove()):a.realVal()==a.attr("placeholder")&&(a.val(""),a.removeClass("placeholder")))}function k(){var a=b(this),d,c;placeholder=a.attr("placeholder");
+// b.trim(a.val()).length>0||(a.is(":password")?(c=a.attr("id")+"-clone",d=b("<input/>").attr(b.extend(m(this),{type:"text",value:placeholder,"data-password":1,id:c})).addClass("placeholder"),a.before(d).hide(),b("label[for="+a.attr("id")+"]").attr("for",c)):(a.val(placeholder),a.addClass("placeholder")))}var g="placeholder"in f.createElement("input"),h="placeholder"in f.createElement("textarea"),c=":input[placeholder]";b.placeholder={input:g,textarea:h};!i&&g&&h?b.fn.placeholder=function(){}:(!i&&g&&
+// !h&&(c="textarea[placeholder]"),b.fn.realVal=b.fn.val,b.fn.val=function(){var a=b(this),d;if(arguments.length>0)return a.realVal.apply(this,arguments);d=a.realVal();a=a.attr("placeholder");return d==a?"":d},b.fn.placeholder=function(){this.filter(c).each(k);return this},b(function(a){var b=a(f);b.on("submit","form",l);b.on("focus",c,j);b.on("blur",c,k);a(c).placeholder()}))})(jQuery,document,window.debug);
+// })(jQuery)

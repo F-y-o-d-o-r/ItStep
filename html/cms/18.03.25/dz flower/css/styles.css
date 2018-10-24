@@ -1,0 +1,243 @@
+#maket {
+	width: 1200px;
+	height: 600px;
+	margin: auto;
+    font-family: 'Open Sans', sans-serif;
+}
+.corner-ribbon{
+  width: 270px;
+  background: #d8106c;
+  position: fixed;
+  top: 48px;
+  left: -74px;
+  text-align: center;
+  line-height: 40px;
+  letter-spacing: 1px;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  transform: rotate(-45deg);
+  z-index: 2;
+  
+}
+.zaholovok{
+    padding-top: 10px;
+    color: #c17474;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'robatic' ,sans-serif;
+    font-size: 24px;
+    text-align: center;
+}
+.text {
+position: absolute;
+top: 196px;
+padding-left: 473px;
+height: 29px;
+font-family: Lato;
+color:#8bc34a;
+font-size: 48px;
+font-weight: 900;
+}
+.text1 {
+    line-height: 1.42857143;
+position: absolute;
+top: 259px;
+padding-left: 436px;
+height: 16px;
+font-family: 'Open Sans', sans-serif;
+color: #ffffff;
+font-size: 16px;
+font-weight: 400;
+}
+.text2 {
+position: absolute;
+top: 75px;
+padding-left: 103px;
+width: 50px;
+height: 20px;	
+font-family: 'Kaushan Script', cursive;
+color:#ffffff;
+font-size: 21px;
+font-weight: 400;
+line-height: 26px;
+}
+.ikonki {
+position: absolute;
+top: 76px;
+padding-left: 945px;
+}
+.ikonki1 {
+position: absolute;
+top: 76px;
+padding-left: 1004px;
+}
+.ikonki2 {
+position: absolute;
+top: 76px;
+padding-left: 1060px;
+}
+#content {
+width: 1200px;
+height: 880px;
+margin: auto;
+margin-top: -17px;
+background-color: #fbe7e7;
+color:#9b9b9b;
+}
+
+#footer {
+width: 1200px;
+height: 300px;
+margin: auto;
+}
+.ex1 {
+font-family: 'Open Sans', sans-serif;
+position: absolute;
+top: 846px;
+padding-left:433px;	
+color: #565d64;
+font-size: 24px;
+font-weight: 900;
+line-height: 27px;
+text-align: center;
+}
+.ex2 {
+position: absolute;
+top:876px;
+padding-left: 319px;
+height: 84px;	
+font-family: Lato;
+color: #565d64;
+font-size: 16px;
+font-weight: 400;
+line-height: 27px;
+text-align: center;
+}
+
+a.ex3 {
+font-family: 'Open Sans', sans-serif; rgb(160, 78, 118);
+color: #ffffff;
+font-size: 20px;
+font-weight: 900;
+text-align: center; 
+position: absolute;
+margin-left: 459px;
+top: 960px;
+background-color: #888888;
+width: 220px;
+height: 24px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1em calc(.8em + 3px);
+  border-radius: 3px;
+  background: rgb(160, 78, 118);
+  box-shadow: 0 -3px rgb(127, 63, 94) inset;
+  transition: 0.2s;
+} 
+a.button7:hover { background: rgb(160, 78, 118); }
+a.button7:active {
+  background:rgb(127, 63, 94);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+.line {
+position: absolute;
+margin-left: 317px;
+top: 1871px;	
+background-color: #e0e0e0;
+width: 595px;
+height: 1px;
+}
+.ex4 {
+position: absolute;
+top: 1909px;
+padding-left: 426px;
+height: 9px;
+letter-spacing: 2px;	
+font-family: Lato;
+color: #9b9b9b;
+font-size: 12px;
+font-weight: 700;
+text-align: center;
+}
+ul{
+	padding: 0px;
+}
+#menu{
+    position: absolute;
+    top: 506px;
+    font-family: Lato;
+height: 9px;
+        box-shadow: 1px 0px 5px rgba(0,0,0,.8)
+	}
+#menu li{
+	list-style-type: none;
+    z-index: 5;
+}
+.submenu li{
+	background-color: white;
+	padding-top: 2px;
+    
+}
+.menu > li{
+	display: inline-block;
+	position: relative;
+}
+
+ul.submenu{
+	position: absolute;
+	top: 40px;
+	left: 0px;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 1s ease;
+    width: 270px;
+}
+a.menu:hover + ul.submenu, ul.submenu:hover{
+	visibility: visible;
+	white-space:nowrap;
+	opacity: 1;
+}
+
+
+a.submenu{
+	line-height: 40px;
+}
+a.menu{
+	line-height: 40px;
+}
+
+.menu a:link, .menu a:visited{
+	color: #e0e0e0;
+    text-decoration: none;
+     text-align: center;
+    font-family: Lato;
+    display: block;
+    background-color: #a04e76;
+	width: 298px;
+    border: 3px;
+}
+a.menu:hover {
+	color: orange;
+}
+.submenu a:hover{
+	background-color:#e8c047;
+	color: black;
+}
+a.menu {
+    float: left;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+    border: 1px;
+  }
+.submenu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+li{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+@media (min-width: 200px);
